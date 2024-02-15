@@ -1,4 +1,10 @@
 
+using AzaRRoide.Application.Interfaces;
+using AzaRRoide.Application.Services;
+using AzaRRoide.Domain.Interfaces;
+using AzaRRoide.Infra.Data.Repositories;
+using Refit;
+
 namespace AzaRRoide.API
 {
     public class Program
@@ -13,6 +19,13 @@ namespace AzaRRoide.API
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddRefitClient<IEmpresaConsumoApiRefit>()
+    .ConfigureHttpClient(c =>
+    {
+        c.BaseAddress = new Uri("https://www.receitaws.com.br");
+    });
+            builder.Services.AddScoped<IEmpresaIntegracao, EmpresaIntegracao>();
 
             var app = builder.Build();
 
