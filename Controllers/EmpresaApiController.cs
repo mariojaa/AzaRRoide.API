@@ -1,5 +1,5 @@
-﻿using AzaRRoide.Application.Interfaces;
-using AzaRRoide.Domain.Entities;
+﻿using AzaRRoide.Domain.Entities;
+using AzaRRoide.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AzaRRoide.API.Controllers

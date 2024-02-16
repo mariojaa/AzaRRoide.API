@@ -1,8 +1,5 @@
-
-using AzaRRoide.Application.Interfaces;
-using AzaRRoide.Application.Services;
-using AzaRRoide.Domain.Interfaces;
-using AzaRRoide.Infra.Data.Repositories;
+using AzaRRoide.Interfaces;
+using AzaRRoide.Services;
 using Refit;
 
 namespace AzaRRoide.API
