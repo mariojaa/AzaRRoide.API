@@ -15,15 +15,15 @@ namespace AzaRRoide.API.Controllers
             _empresaIntegracao = empresaIntegracao;
         }
 
-        [HttpGet("cnpj")]
-        public async Task<ActionResult<EmpresaEntitie>> ListarDadosDaEmpresa(string cnpj)
+        [HttpGet("{cnpj}")]
+        public async Task<IActionResult> ListarDadosDaEmpresa(string cnpj)
         {
             try
             {
                 EmpresaEntitie empresaEntitie = await _empresaIntegracao.ObterDadosDaEmpresa(cnpj);
                 if (empresaEntitie == null)
                 {
-                    return BadRequest("Cnpj não encontrado");
+                    return NotFound("Cnpj não encontrado");
                 }
                 return Ok(empresaEntitie);
             }
